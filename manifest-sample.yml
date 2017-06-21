@@ -1,0 +1,13 @@
+---
+applications:
+- name: mongodb-atlas-broker
+  memory: 1G
+  instances: 1
+  path: target/mongodb-atlas-broker-0.0.1-SNAPSHOT.jar
+  random-route: false
+  env:
+      ATLAS_GROUPID: "123AB1A123A1234567890ABC"
+      ATLAS_API_USER: "i.polyzos@gmail.com"
+      ATLAS_API_KEY: "123ab1ab-1234-12a1-12ab-a1a1234567ab"
+      ATLAS_API_BASE: "https://cloud.mongodb.com/api/atlas/v1.0"
+      ATLAS_ENDPOINT: "mongodb://USER:PASS@sample-shard-01-01-sample.mongodb.net:27017,sample-shard-01-02-sample.mongodb.net:27017,sample-shard-01-03-sample.mongodb.net:27017/admin?ssl=true&replicaSet=Sample-shard-0&authSource=admin"

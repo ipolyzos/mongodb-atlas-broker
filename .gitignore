@@ -1,0 +1,9 @@
+Makefile
+*.snap
+*.sh
+prime/
+parts/
+stage/
+snap/.snapcraft/
+*.template
+.xdelta3

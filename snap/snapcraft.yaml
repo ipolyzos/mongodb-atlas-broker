@@ -7,7 +7,7 @@
 # Snap author: Ioannis Polyzos 
 
 name: peco
-version: 'v0.4.7'
+version: 'v0.4.8'
 summary: peco Snap package 
 description: |
    Snap package for peco (pronounced peh-koh) a tool based on percol. percol was darn useful, but I wanted a tool that was a single binary, and forget about python.

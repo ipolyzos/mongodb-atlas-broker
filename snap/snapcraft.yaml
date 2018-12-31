@@ -1,0 +1,36 @@
+# Description: 
+#   Snap package for peco (pronounced peh-koh).
+#
+# Peco Project: https://github.com/peco/peco
+# Peco WIKI: https://github.com/peco/peco/wiki
+#
+# Snap author: Ioannis Polyzos 
+
+name: peco
+version: 'v0.4.7'
+summary: peco Snap package 
+description: |
+   Snap package for peco (pronounced peh-koh) a tool based on percol. percol was darn useful, but I wanted a tool that was a single binary, and forget about python.
+
+grade: stable
+confinement: strict 
+
+parts:
+  peco:
+    source-type: git
+    source: https://github.com/peco/peco
+    source-tag: ${SNAPCRAFT_PROJECT_VERSION}
+    plugin: go
+    go-importpath: github.com/peco/peco 
+    override-build: |
+      export GOPATH=$(realpath ../go)
+      mkdir -p ${GOPATH}/bin ${SNAPCRAFT_PART_INSTALL}/bin/
+      PATH=$PATH:${GOPATH}/bin
+      go get -u github.com/Masterminds/glide
+      cd ${GOPATH}/src/github.com/peco/peco
+      go build -o ${SNAPCRAFT_PART_INSTALL}/bin/peco cmd/peco/peco.go
+      chmod +x ${SNAPCRAFT_PART_INSTALL}/bin/peco
+
+apps:
+  peco:
+    command: bin/peco
